@@ -22,6 +22,7 @@ export const TodoProducer = produce((state , action)=>{
             state.AllTasks[TodoObject.id] = TodoObject
             break
         case  'todo/ChangeColorTasks' :
+            //TodoColors is included id & new colors from options
             const TodoColors = action.payload
             state.AllTasks[TodoColors.id].color = TodoColors.NewColor
             break

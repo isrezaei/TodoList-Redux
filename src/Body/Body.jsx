@@ -1,14 +1,12 @@
 import {shallowEqual, useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import {ChangeColorTasks, DeletingTask, ToggleComplete} from "../Dispatchs";
+import {ChangeColorTasks, DeletingTask, ToggleComplete} from "../ToDoDispatchs";
 
 export default function Body()
 {
 
 
     const AllTodos = useSelector(state => Object.values(state.ToDoItems.AllTasks) , shallowEqual)
-
-    console.log(AllTodos)
 
 
     const dispatch  = useDispatch()
