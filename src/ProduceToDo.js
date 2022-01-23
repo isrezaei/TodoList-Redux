@@ -23,6 +23,14 @@ export const TodoProducer = produce((state , action)=>{
         case  'todo/ChangeColorTasks' :
             const TodoColors = action.payload
             state.AllTasks[TodoColors.id].color = TodoColors.NewColor
+            break
+        case 'todo/DeletingTask':
+
+            const Id = action.payload
+
+            console.log(state.AllTasks[Id])
+
+            delete state.AllTasks[Id]
 
             break
     }

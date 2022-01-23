@@ -4,7 +4,6 @@ export const BaseData = [
     {id : 1 , text : 'This is a Todo List' , color : 'red' , complete : 'false'},
 ]
 
-
 export default function DataServer ()
 {
     return new Promise((resolve) => {

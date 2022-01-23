@@ -34,3 +34,32 @@ export const ChangeColorTasks = (ColorOptions , id) =>
         }
     }
 }
+
+//Real Dispatch for Deleting Task
+export const DeletingTask = (id) =>
+{
+    return {
+        type : 'todo/DeletingTask',
+        payload : id
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
