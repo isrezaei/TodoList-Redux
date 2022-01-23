@@ -17,6 +17,7 @@ export const TodoProducer = produce((state , action)=>{
             break
 
         case 'todo/AddTodoToState' :
+            //TodoObject is one object from main object collection
             const TodoObject = action.payload
             state.AllTasks[TodoObject.id] = TodoObject
             break
@@ -24,15 +25,13 @@ export const TodoProducer = produce((state , action)=>{
             const TodoColors = action.payload
             state.AllTasks[TodoColors.id].color = TodoColors.NewColor
             break
-        case 'todo/DeletingTask':
-
-            const Id = action.payload
-
-            console.log(state.AllTasks[Id])
-
-            delete state.AllTasks[Id]
-
+        case 'todo/DeletingTasks':
+            const id_ForDeleting = action.payload
+            delete state.AllTasks[id_ForDeleting]
             break
+        case 'todo/CompletedTasks':
+            const id_ForToggleComplete = action.payload
+            state.AllTasks[id_ForToggleComplete].complete = !state.AllTasks[id_ForToggleComplete].complete
     }
 
 } , initState)

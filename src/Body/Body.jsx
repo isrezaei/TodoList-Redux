@@ -1,6 +1,6 @@
 import {shallowEqual, useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import {ChangeColorTasks , DeletingTask} from "../Dispatchs";
+import {ChangeColorTasks, DeletingTask, ToggleComplete} from "../Dispatchs";
 
 export default function Body()
 {
@@ -8,8 +8,11 @@ export default function Body()
 
     const AllTodos = useSelector(state => Object.values(state.ToDoItems.AllTasks) , shallowEqual)
 
+    console.log(AllTodos)
+
 
     const dispatch  = useDispatch()
+
     const ColorTask = ['red' , 'green' , 'blue' , 'pink' , 'yellow']
 
     const GetColorsFromArray = ColorTask.map(Colors => {
@@ -21,7 +24,7 @@ export default function Body()
         )
     })
 
-    const onChangeColor = (ColorOptions , id) =>
+    const ChangeColor = (ColorOptions , id) =>
     {
         dispatch(ChangeColorTasks(ColorOptions , id))
     }
@@ -29,6 +32,11 @@ export default function Body()
     const Deleting = (id) =>
     {
         dispatch(DeletingTask(id))
+    }
+
+    const ToggleCheckBox = (id) =>
+    {
+        dispatch(ToggleComplete(id))
     }
 
 
@@ -39,16 +47,14 @@ export default function Body()
         return (
             <div key={id}>
 
-                <input type={'checkbox'}/>
-
-                <p>{text}</p>
-
+                <input type={'checkbox'} onClick={()=> ToggleCheckBox(id)}/>
+                <span>{text}</span>
                 <select
-                    onChange={(e) => onChangeColor(e.target.value , id)}>
+                    onChange={(e) => ChangeColor(e.target.value , id)}>
                     {GetColorsFromArray}
                 </select>
-
                 <button onClick={() => Deleting(id)}>Delete Tasks</button>
+
             </div>
         )
     })

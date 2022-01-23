@@ -9,7 +9,7 @@ export const NewTasks = (NewId , InputText) =>
             id : NewId ,
             text : InputText ,
             color : 'red' ,
-            complete : 'false'
+            complete : false
         }
         BaseData.push(NewTask)
         dispatch(AddNewTask(BaseData[NewId]))
@@ -39,12 +39,20 @@ export const ChangeColorTasks = (ColorOptions , id) =>
 export const DeletingTask = (id) =>
 {
     return {
-        type : 'todo/DeletingTask',
+        type : 'todo/DeletingTasks',
         payload : id
     }
 }
 
+//Real Dispatch for Complete and unCompleted Task
+export const ToggleComplete = (id) =>
+{
+    return {
+        type : 'todo/CompletedTasks',
+        payload : id
+    }
 
+}
 
 
 
