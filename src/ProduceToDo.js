@@ -33,6 +33,16 @@ export const TodoProducer = produce((state , action)=>{
         case 'todo/CompletedTasks':
             const id_ForToggleComplete = action.payload
             state.AllTasks[id_ForToggleComplete].complete = !state.AllTasks[id_ForToggleComplete].complete
+            break
+        case 'todo/MarkAllCompleted':
+          Object.values(state.AllTasks).forEach(value => value.complete = !value.complete)
+            break
+        case 'todo/ClearMarked':
+           Object.values(state.AllTasks).forEach(value => {
+               value.complete === true && delete state.AllTasks[value.id]
+           })
+
+            break
     }
 
 } , initState)

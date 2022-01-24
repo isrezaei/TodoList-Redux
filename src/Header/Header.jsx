@@ -15,19 +15,16 @@ export default function Header()
 
     const SendNewTasks = () =>
     {
-
+        setInputText('')
         setNewId(NewId + 1)
-
-
         dispatch(NewTasks(NewId , InputText))
-
     }
 
 
 
     return (
         <>
-            <input onChange={(event => setInputText(event.target.value))}/>
+            <input value={InputText} onChange={(event => setInputText(event.target.value))}/>
             <button onClick={SendNewTasks}>Add Task</button>
         </>
     )

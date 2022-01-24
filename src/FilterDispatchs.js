@@ -1,3 +1,4 @@
+//Real Dispatch for Push New Color And Filter Old Color in Array
 export const PickNewColors = (Colors , ChangeType) =>
 {
     return {
@@ -9,7 +10,7 @@ export const PickNewColors = (Colors , ChangeType) =>
     }
 }
 
-
+//Real Dispatch for Change Status
 export const PickNewStatus = (Status) =>
 {
     return {
@@ -17,3 +18,5 @@ export const PickNewStatus = (Status) =>
         payload : Status
     }
 }
+
+

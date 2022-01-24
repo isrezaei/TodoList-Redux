@@ -53,7 +53,21 @@ export const ToggleComplete = (id) =>
     }
 
 }
+//Real Dispatch for Mark All Task
+export const MarkAll = () =>
+{
+    return {
+        type : 'todo/MarkAllCompleted',
+    }
+}
 
+//Real Dispatch for Clear Mark Task
+export const ClearMarked = () =>
+{
+    return {
+        type : 'todo/ClearMarked'
+    }
+}
 
 
 

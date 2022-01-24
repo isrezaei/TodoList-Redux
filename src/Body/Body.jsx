@@ -6,7 +6,9 @@ export default function Body()
 {
 
 
-    const AllTodos = useSelector(state => Object.values(state.ToDoItems.AllTasks) , shallowEqual)
+     const AllTodos = useSelector(state => Object.values(state.ToDoItems.AllTasks) , shallowEqual)
+
+    console.log(AllTodos)
 
 
     const dispatch  = useDispatch()
@@ -40,12 +42,12 @@ export default function Body()
 
     return AllTodos.map(value => {
 
-        const {id , text} = value
+        const {id , text , complete} = value
 
         return (
             <div key={id}>
 
-                <input type={'checkbox'} onClick={()=> ToggleCheckBox(id)}/>
+                <input type={'checkbox'} onChange={()=> ToggleCheckBox(id)} checked={complete} />
                 <span>{text}</span>
                 <select
                     onChange={(e) => ChangeColor(e.target.value , id)}>
