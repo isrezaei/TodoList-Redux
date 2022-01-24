@@ -1,6 +1,6 @@
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {PickNewColors, PickNewStatus} from "../FilterDispatchs";
-import {MarkAll , ClearMarked} from "../ToDoDispatchs";
+import {MarkAll, ClearMarked, unMarkAll} from "../ToDoDispatchs";
 import {StatusSource} from "../ProduceFilter";
 
 
@@ -58,6 +58,12 @@ export default function Footer ()
         dispatch(MarkAll())
     }
 
+    const FooterUnMarkAllCompleted = () =>
+    {
+        dispatch(unMarkAll())
+    }
+
+
     const FooterClearMarked = () =>
     {
         dispatch(ClearMarked())
@@ -81,9 +87,12 @@ export default function Footer ()
 
             <div style={{marginTop : '1%'}}>
 
-                <button onClick={()=> FooterMarkAllCompleted()}>Mark All Completed</button>
+                <button onClick={()=> FooterMarkAllCompleted()}>mark all </button>
 
-                <button onClick={()=> FooterClearMarked()}>Clear Marked</button>
+                <button onClick={()=> FooterUnMarkAllCompleted()}>unmark all completed </button>
+
+                <button onClick={()=> FooterClearMarked()}>clear marked completed </button>
+
 
             </div>
 

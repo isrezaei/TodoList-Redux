@@ -61,6 +61,15 @@ export const MarkAll = () =>
     }
 }
 
+//Real Dispatch for unMark All Task
+export const unMarkAll = () =>
+{
+    return {
+        type : 'todo/unMarkAllCompleted',
+    }
+}
+
+
 //Real Dispatch for Clear Mark Task
 export const ClearMarked = () =>
 {
