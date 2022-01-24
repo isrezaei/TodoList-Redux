@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
 import {TodoProducer} from "./ProduceToDo";
-import {FilterProduce} from "./ProduceColor";
+import {FilterProduce} from "./ProduceFilter";
 
 export const Reducer = combineReducers({
     ToDoItems : TodoProducer ,

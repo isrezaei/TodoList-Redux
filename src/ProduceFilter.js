@@ -1,6 +1,6 @@
 import produce from "immer";
 
-const StatusSource = {
+export const StatusSource = {
     All : 'All',
     Completed : 'Completed',
     NotCompleted : 'NotCompleted'
@@ -24,6 +24,10 @@ export const FilterProduce = produce((state , action)=> {
                 case 'RemoveTask':
                   state.colors = state.colors.filter(oldColor => oldColor !== Colors)
             }
+            break
+        case 'status/ChangeStatus':
+            state.status = action.payload
+            break
 
     }
 
