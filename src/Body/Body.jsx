@@ -1,6 +1,7 @@
 import {shallowEqual, useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 import {ChangeColorTasks, DeletingTask, ToggleComplete} from "../ToDoDispatchs";
+import {ConditionalRendering} from "./DriveData";
 
 export default function Body()
 {
@@ -8,7 +9,9 @@ export default function Body()
 
      const AllTodos = useSelector(state => Object.values(state.ToDoItems.AllTasks) , shallowEqual)
 
-    console.log(AllTodos)
+    const Drive = useSelector( ConditionalRendering , shallowEqual)
+
+
 
 
     const dispatch  = useDispatch()

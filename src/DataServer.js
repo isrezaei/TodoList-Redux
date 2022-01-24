@@ -1,4 +1,3 @@
-
 export const BaseData = [
     {id : 0 , text : 'Hello my friends' , color : 'red' , complete : false},
     {id : 1 , text : 'This is a Todo List' , color : 'red' , complete : false},

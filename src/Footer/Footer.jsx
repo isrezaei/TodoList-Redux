@@ -12,7 +12,6 @@ export default function Footer ()
 
     const AllStatus = useSelector(state => state.FilterItems.status , shallowEqual)
 
-
     const AllTodos = useSelector(state => Object.values(state.ToDoItems.AllTasks) , shallowEqual)
 
 
