@@ -1,18 +1,14 @@
 import {shallowEqual, useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 import {ChangeColorTasks, DeletingTask, ToggleComplete} from "../ToDoDispatchs";
-import {ConditionalRendering} from "./DriveData";
+import {FinalRendering} from "./DriveData";
 
 export default function Body()
 {
 
+    const AllTodos = useSelector(FinalRendering , shallowEqual)
 
-     const AllTodos = useSelector(state => Object.values(state.ToDoItems.AllTasks) , shallowEqual)
-
-    const Drive = useSelector( ConditionalRendering , shallowEqual)
-
-
-
+    // console.log(AllTodos)
 
     const dispatch  = useDispatch()
 
@@ -45,7 +41,7 @@ export default function Body()
 
     return AllTodos.map(value => {
 
-        const {id , text , complete} = value
+        const {id , text , complete , color} = value
 
         return (
             <div key={id}>
@@ -53,13 +49,12 @@ export default function Body()
                 <input type={'checkbox'} onChange={()=> ToggleCheckBox(id)} checked={complete} />
                 <span>{text}</span>
                 <select
+                    defaultValue={color}
                     onChange={(e) => ChangeColor(e.target.value , id)}>
                     {GetColorsFromArray}
                 </select>
                 <button onClick={() => Deleting(id)}>Delete Tasks</button>
-
             </div>
         )
     })
-
 }
