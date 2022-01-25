@@ -7,8 +7,15 @@ export default function Body()
 {
 
     const AllTodos = useSelector(FinalRendering , shallowEqual)
+    const LoadingSpinner = useSelector(state => state.ToDoItems.Loader)
 
-    // console.log(AllTodos)
+    console.log(LoadingSpinner)
+
+    const Loading = LoadingSpinner === 'Loading'
+
+
+
+
 
     const dispatch  = useDispatch()
 
@@ -39,7 +46,9 @@ export default function Body()
     }
 
 
-    return AllTodos.map(value => {
+
+
+    return !Loading ? AllTodos.map(value => {
 
         const {id , text , complete , color} = value
 
@@ -55,6 +64,7 @@ export default function Body()
                 </select>
                 <button onClick={() => Deleting(id)}>Delete Tasks</button>
             </div>
+
         )
-    })
+    }) : <p>Loading ... </p>
 }

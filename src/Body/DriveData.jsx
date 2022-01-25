@@ -8,8 +8,6 @@ const Filters = state => state.FilterItems
 
 const ConditionalRendering = createSelector([Tasks , Filters], (Tasks , Filters)=>{
 
-    // console.log(Tasks)
-    // console.log(Filters.status)
 
     const TasksObjectValue = Object.values(Tasks.AllTasks)
 
@@ -22,6 +20,8 @@ const ConditionalRendering = createSelector([Tasks , Filters], (Tasks , Filters)
     return TasksObjectValue.filter(value => {
         const ColorFilters = FooterColors.length === 0 || FooterColors.includes(value.color)
         const StatusFilter = ShowAll || ShowStatus === value.complete
+
+
         return ColorFilters && StatusFilter
     })
 })

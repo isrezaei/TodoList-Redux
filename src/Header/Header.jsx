@@ -13,11 +13,13 @@ export default function Header()
 
 
 
-    const SendNewTasks = () =>
+    const SendNewTasks = async () =>
     {
+
+        await dispatch(NewTasks(NewId , InputText))
+
         setInputText('')
         setNewId(NewId + 1)
-        dispatch(NewTasks(NewId , InputText))
     }
 
 

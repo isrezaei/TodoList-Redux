@@ -11,7 +11,7 @@ export const NewTasks = (NewId , InputText) =>
             color : 'red' ,
             complete : false
         }
-        BaseData.push(NewTask)
+         BaseData.push(NewTask)
         dispatch(AddNewTask(BaseData[NewId]))
     }
 }

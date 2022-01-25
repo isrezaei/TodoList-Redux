@@ -5,10 +5,10 @@ const initState = {
     AllTasks : {}
 }
 
-export const TodoProducer = produce((state , action)=>{
+export const TodoProducer = produce((state , action)=> {
     switch (action.type) {
 
-        case 'todo/LoadingTaskFormServer' :
+        case 'todo/LoadingTaskFormServer':
             const SaveData = {}
             state.Loader = 'Loading'
             action.payload.forEach(Todo => SaveData[Todo.id] = Todo)
